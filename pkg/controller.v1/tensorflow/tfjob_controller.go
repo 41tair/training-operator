@@ -30,7 +30,6 @@ import (
 	"github.com/kubeflow/common/pkg/controller.v1/expectation"
 	commonutil "github.com/kubeflow/common/pkg/util"
 	train_util "github.com/kubeflow/common/pkg/util/train"
-	trainingv1 "github.com/kubeflow/training-operator/pkg/apis/training/v1"
 
 	trainingv1 "github.com/kubeflow/training-operator/pkg/apis/training/v1"
 

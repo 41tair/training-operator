@@ -602,7 +602,7 @@ func (jc *MPIJobReconciler) UpdateJobStatus(job interface{}, replicas map[common
 					commonutil.LoggerForJob(mpiJob).Infof("Append job condition error: %v", err)
 					return err
 				}
-				trainingoperatorcommon.SuccessfulJobsCounterInc(mpiJob.Namespace, trainingv1.FrameworkName)
+				trainingoperatorcommon.SuccessfulJobsCounterInc(mpiJob.Namespace, trainingv1.MPIFrameworkName)
 				return nil
 			}
 		}
@@ -1328,7 +1328,7 @@ func newLauncherServiceAccount(mpiJob *trainingv1.MPIJob) *corev1.ServiceAccount
 				"app": mpiJob.Name,
 			},
 			OwnerReferences: []metav1.OwnerReference{
-				*metav1.NewControllerRef(mpiJob, trainingv1.SchemeGroupVersionKind),
+				*metav1.NewControllerRef(mpiJob, trainingv1.SchemeGroupVersion.WithKind(trainingv1.MPIKind)),
 			},
 		},
 	}
