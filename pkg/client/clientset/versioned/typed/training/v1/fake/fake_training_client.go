@@ -30,6 +30,10 @@ func (c *FakeKubeflowV1) MPIJobs(namespace string) v1.MPIJobInterface {
 	return &FakeMPIJobs{c, namespace}
 }
 
+func (c *FakeKubeflowV1) MXJobs(namespace string) v1.MXJobInterface {
+	return &FakeMXJobs{c, namespace}
+}
+
 func (c *FakeKubeflowV1) PyTorchJobs(namespace string) v1.PyTorchJobInterface {
 	return &FakePyTorchJobs{c, namespace}
 }

@@ -24,6 +24,8 @@ import (
 type Interface interface {
 	// MPIJobs returns a MPIJobInformer.
 	MPIJobs() MPIJobInformer
+	// MXJobs returns a MXJobInformer.
+	MXJobs() MXJobInformer
 	// PyTorchJobs returns a PyTorchJobInformer.
 	PyTorchJobs() PyTorchJobInformer
 	// TFJobs returns a TFJobInformer.
@@ -46,6 +48,11 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // MPIJobs returns a MPIJobInformer.
 func (v *version) MPIJobs() MPIJobInformer {
 	return &mPIJobInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// MXJobs returns a MXJobInformer.
+func (v *version) MXJobs() MXJobInformer {
+	return &mXJobInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
 
 // PyTorchJobs returns a PyTorchJobInformer.

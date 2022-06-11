@@ -24,6 +24,14 @@ type MPIJobListerExpansion interface{}
 // MPIJobNamespaceLister.
 type MPIJobNamespaceListerExpansion interface{}
 
+// MXJobListerExpansion allows custom methods to be added to
+// MXJobLister.
+type MXJobListerExpansion interface{}
+
+// MXJobNamespaceListerExpansion allows custom methods to be added to
+// MXJobNamespaceLister.
+type MXJobNamespaceListerExpansion interface{}
+
 // PyTorchJobListerExpansion allows custom methods to be added to
 // PyTorchJobLister.
 type PyTorchJobListerExpansion interface{}

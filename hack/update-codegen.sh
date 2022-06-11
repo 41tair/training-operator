@@ -84,10 +84,10 @@ ${CODEGEN_PKG}/generate-groups.sh "all" \
 #go build -o defaulter-gen ${CODEGEN_PKG}/cmd/defaulter-gen
 
 # ${GOPATH}/bin/defaulter-gen is automatically built from ${CODEGEN_PKG}/generate-groups.sh
-echo "Generating defaulters for apis/v1"
-${GOPATH}/bin/defaulter-gen --input-dirs github.com/kubeflow/training-operator/pkg/apis/v1 \
+echo "Generating defaulters for all apis"
+${GOPATH}/bin/defaulter-gen --input-dirs github.com/kubeflow/training-operator/pkg/apis/ \
     -O zz_generated.defaults \
-    --output-package github.com/kubeflow/training-operator/pkg/apis/v1 \
+    --output-package github.com/kubeflow/training-operator/pkg/apis/training/v1 \
     --go-header-file hack/boilerplate/boilerplate.go.txt "$@" \
     --output-base "${TEMP_DIR}"
 
@@ -98,10 +98,10 @@ cd - >/dev/null
 echo "Building openapi-gen"
 go build -o openapi-gen ${OPENAPI_PKG}/cmd/openapi-gen
 
-echo "Generating OpenAPI specification for apis/v1"
-./openapi-gen --input-dirs github.com/kubeflow/training-operator/pkg/apis/v1,github.com/kubeflow/common/pkg/apis/common/v1 \
+echo "Generating OpenAPI specification for all apis"
+./openapi-gen --input-dirs github.com/kubeflow/training-operator/pkg/apis,github.com/kubeflow/common/pkg/apis/common/v1 \
     --report-filename=hack/violation_exception.list \
-    --output-package github.com/kubeflow/training-operator/pkg/apis/v1 \
+    --output-package github.com/kubeflow/training-operator/pkg/apis/training/v1 \
     --go-header-file hack/boilerplate/boilerplate.go.txt "$@" \
     --output-base "${TEMP_DIR}"
 
