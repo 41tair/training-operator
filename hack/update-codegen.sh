@@ -73,7 +73,8 @@ chmod +x ${CODEGEN_PKG}/generate-groups.sh
 #                  instead of the $GOPATH directly. For normal projects this can be dropped.
 cd ${SCRIPT_ROOT}
 ${CODEGEN_PKG}/generate-groups.sh "all" \
-    github.com/kubeflow/training-operator/pkg/client github.com/kubeflow/training-operator/pkg/apis/v1 \
+	      github.com/kubeflow/training-operator/pkg/client github.com/kubeflow/training-operator/pkg/apis \
+	      training:v1 \
     --output-base "${TEMP_DIR}" \
     --go-header-file hack/boilerplate/boilerplate.go.txt
 
